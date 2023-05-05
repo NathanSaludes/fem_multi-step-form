@@ -1,0 +1,124 @@
+{
+	"name": {
+		"label": "Name",
+		"unique_value": "name",
+		"type": "text",
+		"default_value": "",
+		"placeholder": "e.g. Stephen King"
+	},
+	"email": {
+		"label": "Email Address",
+		"unique_value": "email",
+		"type": "email",
+		"default_value": "",
+		"placeholder": "e.g. stephenking@lorem.com"
+	},
+	"phone": {
+		"label": "Phone Number",
+		"unique_value": "phone",
+		"type": "text",
+		"default_value": "",
+		"placeholder": "e.g. +1 234 567 890"
+	},
+	"billing_terms": [
+		"monthly",
+		"annually"
+	],
+	"plan_tiers": {
+		"arcade": {
+			"unique_value": "arcade",
+			"label": "Arcade",
+			"icon": "icon-arcade.svg",
+			"pricing": {
+				"monthly": {
+					"value": 9,
+					"label": "$9/mo"
+				},
+				"annually": {
+					"value": 90,
+					"label": "$90/yr",
+					"supplementary_text": "2 months free"
+				}
+			}
+		},
+		"advanced": {
+			"unique_value": "advanced",
+			"label": "Advanced",
+			"icon": "icon-advanced.svg",
+			"pricing": {
+				"monthly": {
+					"value": 12,
+					"label": "$12/mo"
+				},
+				"annually": {
+					"value": 120,
+					"label": "$120/yr",
+					"supplementary_text": "2 months free"
+				}
+			}
+		},
+		"pro": {
+			"unique_value": "pro",
+			"label": "Pro",
+			"icon": "icon-pro.svg",
+			"pricing": {
+				"monthly": {
+					"value": 15,
+					"label": "$15/mo"
+				},
+				"annually": {
+					"value": 150,
+					"label": "$150/yr",
+					"supplementary_text": "2 months free"
+				}
+			}
+		}
+	},
+	"add_ons": {
+		"online_service": {
+			"unique_value": "online_service",
+			"label": "Online Service",
+			"description": "Access to multiplayer games",
+			"pricing": {
+				"monthly": {
+					"value": 1,
+					"label": "$1/mo"
+				},
+				"annually": {
+					"value": 10,
+					"label": "$10/yr"
+				}
+			}
+		},
+		"larger_storage": {
+			"unique_value": "larger_storage",
+			"label": "Larger Storage",
+			"description": "Extra 1TB of cloud save",
+			"pricing": {
+				"monthly": {
+					"value": 2,
+					"label": "$2/mo"
+				},
+				"annually": {
+					"value": 20,
+					"label": "$20/yr"
+				}
+			}
+		},
+		"customizable_profile": {
+			"unique_value": "customizable_profile",
+			"label": "Customizable Profile",
+			"description": "Custom theme on your profile",
+			"pricing": {
+				"monthly": {
+					"value": 2,
+					"label": "$2/mo"
+				},
+				"annually": {
+					"value": 20,
+					"label": "$20/yr"
+				}
+			}
+		}
+	}
+}

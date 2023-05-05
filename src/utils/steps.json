@@ -1,0 +1,18 @@
+[
+	{
+		"path": "/step-1",
+		"title": "Your Info"
+	},
+	{
+		"path": "/step-2",
+		"title": "Select Plan"
+	},
+	{
+		"path": "/step-3",
+		"title": "Add-Ons"
+	},
+	{
+		"path": "/summary",
+		"title": "Summary"
+	}
+]
