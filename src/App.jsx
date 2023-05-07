@@ -1,6 +1,6 @@
 // SolidJS Imports
 import { Navigate, Route, Routes, useNavigate } from '@solidjs/router';
-import { For, createEffect, createMemo, createSignal } from 'solid-js';
+import { For, Show, createEffect, createMemo, createSignal } from 'solid-js';
 
 // Component Imports
 import FormActions from './components/FormActions';
@@ -22,6 +22,8 @@ function App() {
   const { currentStepIndex, handleStep } = useFormStep();
   const { formData, setFormData, isPaidMonthly } = useForm();
 
+  const [formIsSubmitted, setFormIsSubmitted] = createSignal(false);
+
   const currentStep = createMemo(() => (
     Steps[currentStepIndex()].path
   ));
@@ -31,12 +33,18 @@ function App() {
     navigate(currentStep(), { resolve: true });
   });
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    setFormIsSubmitted(true);
+  }
+
   return (
     <MainLayout>
       <form class='
         container
         [ bg-white flex ]
         [ sm:bg-white sm:w-full sm:max-w-[1000px] sm:gap-4 sm:mx-4 sm:p-4 sm:rounded-2xl sm:shadow-xl sm:shadow-slate-300/40 ]'
+        onsubmit={handleFormSubmit}
       >
         <div class='
           side-bar
@@ -58,20 +66,27 @@ function App() {
             [ flex flex-col flex-grow justify-center p-8 rounded-xl bg-white w-full mx-auto shadow-lg shadow-slate-300/40 ]
             [ sm:shadow-none sm:p-0 sm:mx-4 sm:rounded-none sm:max-w-[465px] ]'
           >
+            <Show
+              when={formIsSubmitted() === true}
+              fallback={(
+                <>
+                  <Routes>
+                    <Route path="/step-1" element={<PersonalInfoStep />} />
+                    <Route path="/step-2" element={<SelectPlanStep />} />
+                    <Route path="/step-3" element={<AddOnStep />} />
+                    <Route path="/summary" element={<SummaryStep />} />
+                    <Route path="/" element={<Navigate href="/step-1" />} />
+                  </Routes>
 
-            <Routes>
-              <Route path="/step-1" element={<PersonalInfoStep />} />
-              <Route path="/step-2" element={<SelectPlanStep />} />
-              <Route path="/step-3" element={<AddOnStep />} />
-              <Route path="/summary" element={<SummaryStep />} />
-              <Route path="/" element={<Navigate href="/step-1" />} />
-            </Routes>
-
-            <FormActions
-              currentStep={currentStep}
-              stepHandler={handleStep}
-            />
-            {/* <ThankYouMessage /> */}
+                  <FormActions
+                    currentStep={currentStep}
+                    stepHandler={handleStep}
+                  />
+                </>
+              )}
+            >
+              <ThankYouMessage />
+            </Show>
           </div>
         </div>
 
