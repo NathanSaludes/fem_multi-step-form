@@ -57,6 +57,7 @@ function AddOnStep() {
               price={() => getPricing(item)}
               value={add_ons[item].unique_value}
               onChangeHandler={updateAddOns}
+              isChecked={formData().plan.add_ons.indexOf(add_ons[item].unique_value) > -1}
             />
           )}
         </For>
@@ -66,7 +67,7 @@ function AddOnStep() {
 }
 
 // child/sub component
-function AddOnOption({ name, label, description, value, price, onChangeHandler }) {
+function AddOnOption({ name, label, description, value, price, onChangeHandler, isChecked }) {
 
   return (
     <div class="relative flex items-center group">
@@ -79,6 +80,7 @@ function AddOnOption({ name, label, description, value, price, onChangeHandler }
         name={name}
         id={name}
         value={value}
+        checked={isChecked}
         onchange={(e) => onChangeHandler(e.target)}
       />
       <label
