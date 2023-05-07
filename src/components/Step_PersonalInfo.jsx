@@ -10,6 +10,8 @@ function PersonalInfoStep() {
 
 	const { formData, setFormData } = useForm();
 
+	console.log(name.placeholder)
+
 	return (
 		<>
 			<div class="space-y-2 sm:pt-6">
@@ -21,7 +23,7 @@ function PersonalInfoStep() {
 					label={name.label}
 					name={name.unique_value}
 					type={name.type}
-					placeolder={name.placeholder}
+					placeholder={name.placeholder}
 					value={() => formData().name}
 					changeHandler={value => setFormData(prev => ({ ...prev, name: value }))}
 				/>
@@ -29,7 +31,7 @@ function PersonalInfoStep() {
 					label={email.label}
 					name={email.unique_value}
 					type={email.type}
-					placeolder={email.placeholder}
+					placeholder={email.placeholder}
 					value={() => formData().email}
 					changeHandler={value => setFormData(prev => ({ ...prev, email: value }))}
 				/>
@@ -37,7 +39,7 @@ function PersonalInfoStep() {
 					label={phone.label}
 					name={phone.unique_value}
 					type={phone.type}
-					placeolder={phone.placeholder}
+					placeholder={phone.placeholder}
 					value={() => formData().phone}
 					changeHandler={value => setFormData(prev => ({ ...prev, phone: value }))}
 				/>
